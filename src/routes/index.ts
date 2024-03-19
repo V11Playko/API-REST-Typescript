@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { readdirSync } from "fs";
+import { resolve } from "path";
 
-const PATH_ROUTER = `${__dirname}`;
+const ROUTES_DIR = resolve(__dirname);
+
 const router = Router();
 
 const cleanFileName = (fileName: string) => {
@@ -9,9 +11,9 @@ const cleanFileName = (fileName: string) => {
     return file;
 };
 
-readdirSync(PATH_ROUTER).forEach((fileName) => {
+readdirSync(ROUTES_DIR).forEach((fileName) => {
     const cleanName = cleanFileName(fileName);
-    if (cleanName !== "index") {
+    if (cleanName && cleanName !== "index") {
         import(`./${cleanName}`).then((moduleRouter) => {
             router.use(`/${cleanName}`, moduleRouter.router);
         }).catch((error) => {
