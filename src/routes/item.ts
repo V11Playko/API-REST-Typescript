@@ -1,9 +1,8 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { postItem} from "../controllers/item";
 
 const router = Router();
 
-router.get("/", (req:Request, res:Response) => {
-    res.send({data:"AQUI_VAN"})
-})
+router.post("/", postItem)
 
 export { router}
