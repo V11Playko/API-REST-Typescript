@@ -27,4 +27,9 @@ const updateCar = async (id: string, data: Car) => {
     return responseUpdated;
 }
 
-export { getCar, getCars, insertCar, updateCar }
+const deleteCar = async (id: string) => {
+    const responseDeleted = await ItemModel.findOneAndDelete({_id: id})
+    return responseDeleted;
+}
+
+export { getCar, getCars, insertCar, updateCar, deleteCar }
