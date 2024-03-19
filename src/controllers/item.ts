@@ -1,13 +1,15 @@
 
 import { Request, Response } from "express";
 import { handleHttp } from "../utils/error.handle";
-import { getCars, insertCar } from "../services/item";
+import { getCar, getCars, insertCar } from "../services/item";
 
-const getItem = (req: Request, res: Response) => {
+const getItem = async ({ params }: Request, res: Response) => {
     try {
-        
+        const {id} = params
+        const response = await getCar(id)
+        res.send(response)
     } catch (error) {
-        handleHttp(res, 'ERROR_GET_ITEM')
+        handleHttp(res, 'ERROR_GET_ITEM', error)
     }
 };
 

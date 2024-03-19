@@ -1,6 +1,10 @@
 import { Car } from "../interfaces/car.interface";
 import ItemModel from "../models/item";
 
+const getCar = async (id: string) => {
+    const responseItem = await ItemModel.findOne({_id: id})
+    return responseItem
+}
 
 const getCars = async () => {
     const responseItem = await ItemModel.find({})
@@ -12,4 +16,4 @@ const insertCar = async (item: Car) => {
     return responseInsert;
 };
 
-export { getCars, insertCar }
+export { getCar, getCars, insertCar }
