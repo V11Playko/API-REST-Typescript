@@ -7,7 +7,8 @@ const getItem = async ({ params }: Request, res: Response) => {
     try {
         const {id} = params
         const response = await getCar(id)
-        res.send(response)
+        const data = response ? response : "NOT FOUND"
+        res.send(data)
     } catch (error) {
         handleHttp(res, 'ERROR_GET_ITEM', error)
     }
