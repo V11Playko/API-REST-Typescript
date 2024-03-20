@@ -4,6 +4,6 @@ import {registerCtrl, loginCtrl} from "../controllers/auth.controller"
 const router = Router();
 
 router.post("/register", registerCtrl);
-
+router.post("/login", loginCtrl);
 
 export { router }
