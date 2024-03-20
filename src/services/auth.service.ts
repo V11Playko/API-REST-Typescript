@@ -3,6 +3,7 @@ import { User } from "../interfaces/user.interface";
 import UserModel from "../models/user.models";
 import { encrypt, verified } from "../utils/bcrypt.handle";
 import { Auth } from "../interfaces/auth.interface";
+import { generateToken } from "../utils/jwt.handle";
 
 const registerNewUser = async ({email, password, name}: User) => {
     const checkIs = await UserModel.findOne({email})
@@ -27,7 +28,9 @@ const loginUser = async ({email, password}: Auth) => {
 
     if (!isCorrect) return "Wrong password";
 
-    return checkIs;
+    const token = generateToken(checkIs._id.toString(), checkIs);
+
+    return { email ,token };
 };
 
 export { registerNewUser, loginUser };
