@@ -7,8 +7,118 @@
 	},
 	"item": [
 		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gonzalo\",\r\n    \"email\": \"Gg_leady@gmail.com\",\r\n    \"password\": \"Gonzalo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Gg_leady@gmail.com\",\r\n    \"password\": \"Gonzalo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "All orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmIwNjhlYzg2MGM5YTVjZTYwZmIxNSIsImVtYWlsIjoiR2dfbGVhZHlAZ21haWwuY29tIiwiaWF0IjoxNzExMDI5Mzg1LCJleHAiOjE3MTE2MzQxODV9.7auAhLqFhXBESy2xA7NFnPJs4rnbtX3tyICDzBP7ypc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "List Cars",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmIwNjhlYzg2MGM5YTVjZTYwZmIxNSIsImVtYWlsIjoiR2dfbGVhZHlAZ21haWwuY29tIiwiaWF0IjoxNzExMDI5Mzg1LCJleHAiOjE3MTE2MzQxODV9.7auAhLqFhXBESy2xA7NFnPJs4rnbtX3tyICDzBP7ypc",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -29,10 +139,20 @@
 		{
 			"name": "By Id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmIwNjhlYzg2MGM5YTVjZTYwZmIxNSIsImVtYWlsIjoiR2dfbGVhZHlAZ21haWwuY29tIiwiaWF0IjoxNzExMDI5Mzg1LCJleHAiOjE3MTE2MzQxODV9.7auAhLqFhXBESy2xA7NFnPJs4rnbtX3tyICDzBP7ypc",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3002/api/car/65f8ac1b3d0016069d87e843",
+					"raw": "http://localhost:3002/api/car/65f9d24d426dd087f3e82754",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -41,7 +161,7 @@
 					"path": [
 						"api",
 						"car",
-						"65f8ac1b3d0016069d87e843"
+						"65f9d24d426dd087f3e82754"
 					]
 				}
 			},
@@ -50,6 +170,16 @@
 		{
 			"name": "Create Car",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmIwNjhlYzg2MGM5YTVjZTYwZmIxNSIsImVtYWlsIjoiR2dfbGVhZHlAZ21haWwuY29tIiwiaWF0IjoxNzExMDI5Mzg1LCJleHAiOjE3MTE2MzQxODV9.7auAhLqFhXBESy2xA7NFnPJs4rnbtX3tyICDzBP7ypc",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -79,6 +209,16 @@
 		{
 			"name": "Update Car",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmIwNjhlYzg2MGM5YTVjZTYwZmIxNSIsImVtYWlsIjoiR2dfbGVhZHlAZ21haWwuY29tIiwiaWF0IjoxNzExMDI5Mzg1LCJleHAiOjE3MTE2MzQxODV9.7auAhLqFhXBESy2xA7NFnPJs4rnbtX3tyICDzBP7ypc",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
@@ -109,6 +249,16 @@
 		{
 			"name": "Delete Car By Id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmIwNjhlYzg2MGM5YTVjZTYwZmIxNSIsImVtYWlsIjoiR2dfbGVhZHlAZ21haWwuY29tIiwiaWF0IjoxNzExMDI5Mzg1LCJleHAiOjE3MTE2MzQxODV9.7auAhLqFhXBESy2xA7NFnPJs4rnbtX3tyICDzBP7ypc",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
